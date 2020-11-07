@@ -1,13 +1,14 @@
 import Router from 'koa-router';
 import { createContact } from '../controllers/contact';
-import { getContact } from '../controllers/contact';
+import { getAllContacts } from '../controllers/contact';
+import { removeContact } from '../controllers/contact';
 
-const router = new Router({
-  prefix: '/api/contacts',
-});
+const router = new Router();
 
-router.get('/', createContact);
+router.post('/addContact', createContact);
 
-router.get('/get', getContact);
+router.get('/getAllContacts', getAllContacts);
+
+router.post('/removeContact', removeContact);
 
 export default router.routes();
